@@ -9,8 +9,11 @@ const bodyParser = require('body-parser');
 //HTTP request logger middleware for node.js
 const morgan = require('morgan');
 //imports our router file that routes the incoming requests to their proper controllers
-//const router = require('./router');
+const router = require('./router');
 const mongoose = require('mongoose');
+const keys = require('./config/keys');
+
+mongoose.connect(keys.mongoURI);
 
 const app = express();
 
@@ -18,12 +21,13 @@ const app = express();
 //morgan is a logging framework, use it for debugging
 //The predefined combined string creates standard Apache combined log output that will show up in the console for debugging.
 app.use(morgan('combined'));
+
 //Parse incoming request bodies in a middleware before your handlers, available under the req.body property. In this case we are parsing json.
 //The type option is passed in with two wild cards for the type/subtype, allowing for any mime type to be parsed, but if it is not json, then an error will be thrown.
 app.use(bodyParser.json({ type: '*/*' }));
 
 //calls our router function, and passes the express instance as an arg.
-//router(app);
+router(app);
 
 //____________________________________________All addditional Routes above this line_________________________________________
 if (process.env.NODE_ENV !== 'production') {
@@ -52,4 +56,6 @@ if (process.env.NODE_ENV !== 'production') {
 
 const port = process.env.PORT || 3000;
 
-app.listen(port, () => console.log('Listening'));
+const server = http.createServer(app);
+
+server.listen(port, () => console.log('Listening'));
