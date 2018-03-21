@@ -2,7 +2,7 @@
 
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Link } from 'react-router';
+import { Link } from 'react-router-dom';
 
 class Header extends Component {
   renderLinks() {
@@ -36,19 +36,22 @@ class Header extends Component {
   }
   render() {
     return (
-      <div className="navbar navbar-light">
+      <nav className="navbar navbar-light bg-light">
         {/* Takes the place of a logo, or somehting similar, that will take the user to the root route. */}
         <Link to="/" className="navbar-brand">
           Redux Auth
         </Link>
         {/* Calls function that checks state to determine how header will be rendered */}
-        <ul className="nav navbar-nav">{this.renderLinks()}</ul>
-      </div>
+        <div>
+          <ul className="navbar-nav">{this.renderLinks()}</ul>
+        </div>
+      </nav>
     );
   }
 }
 
 function mapStateToProps(state) {
+  //Pulls off the authenticated flag specifically
   return { authenticated: state.auth.authenticated };
 }
 

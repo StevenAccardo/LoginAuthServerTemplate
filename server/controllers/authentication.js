@@ -5,7 +5,7 @@ const User = require('../models/user');
 //imports the JSON Web Token encode and decode module for node.js
 const jwt = require('jwt-simple');
 //imports our secret code for encoding
-const keys = require('../config/keys');
+const keys = require('../../config/keys');
 
 //User model as arg
 //creates a JWT for the user

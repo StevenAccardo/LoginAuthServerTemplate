@@ -16,8 +16,9 @@ module.exports = function(app) {
   //http route handlers can be passed multiple functions which will act as middlewares before the last function is executed
   //In this case whenever a user hits the root route, the request will first be routed through the jwt authentication via requireAuth, and then if it passes, it will be sent on to the final function argument.
   //If the user is not authenticated
-  app.get('/', requireAuth, function(req, res) {
-    res.send({ hi: 'there' });
+  //This is being used to emulate some protected data that the user can only access if authenticated.
+  app.get('/feature', requireAuth, function(req, res) {
+    res.send({ message: 'Super secret code is ABC123' });
   });
   //requires the request to go through middleware, where the user will have to be authenticated via requireSignin before it is passed to the route handler Authentication.signin
   //any post request to /signup and /signin will be handled by the corresponding function in the authentication controller file

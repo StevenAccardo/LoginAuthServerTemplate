@@ -6,7 +6,7 @@ const passport = require('passport');
 //Our User model class
 const User = require('../models/user');
 //The JWT secret
-const keys = require('../config/keys');
+const keys = require('../../config/keys');
 //Enables passport to work with JWTs
 const JwtStrategy = require('passport-jwt').Strategy;
 //Extracts the JWT from the request, and can be passed configuration options to determine where that will be pulled from, whether header, body, and etc.

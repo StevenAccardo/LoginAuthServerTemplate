@@ -1,1 +1,0 @@
-webpackJsonp([2],{5:function(n,e,t){"use strict";console.log("hi");var c=document.createElement("button");c.innerText="Click me",c.onclick=function(){t.e(0).then(t.bind(null,12)).then(function(n){n.default()})},document.body.appendChild(c)}},[5]);

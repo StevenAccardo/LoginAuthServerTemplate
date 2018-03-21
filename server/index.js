@@ -11,7 +11,8 @@ const morgan = require('morgan');
 //imports our router file that routes the incoming requests to their proper controllers
 const router = require('./router');
 const mongoose = require('mongoose');
-const keys = require('./config/keys');
+
+const keys = require('../config/keys');
 
 mongoose.connect(keys.mongoURI);
 

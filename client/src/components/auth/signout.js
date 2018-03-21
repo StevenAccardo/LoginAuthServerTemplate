@@ -1,3 +1,5 @@
+//Signs user out and displays a message
+
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import * as actions from '../../actions';
