@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { reduxForm, Field } from 'redux-form';
 import { connect } from 'react-redux';
 import * as actions from '../../actions';
+import { renderComponent, renderAlert, validate } from '../../utils/signupSigninUtil';
 
 class Signin extends Component {
   handleFormSubmit({ email, password }) {
@@ -9,28 +10,17 @@ class Signin extends Component {
     this.props.signinUser({ email, password });
   }
 
-  //renders the error message when a user enters the wrong signin/signup information
-  renderAlert() {
-    if (this.props.errorMessage) {
-      return (
-        <div className="alert alert-danger">
-          <strong>Oops!</strong> {this.props.errorMessage}
-        </div>
-      );
-    }
-  }
-
   render() {
     const { handleSubmit } = this.props;
     return (
       <form onSubmit={handleSubmit(this.handleFormSubmit.bind(this))}>
         <div className="form-group">
-          <Field className="form-control" name="email" component="input" type="text" placeholder="E-mail" />
+          <Field className="form-control" name="email" component={renderComponent} type="input" placeholder="E-mail" />
         </div>
         <div className="form-group">
-          <Field className="form-control" name="password" component="input" type="password" placeholder="Password" />
+          <Field className="form-control" name="password" component={renderComponent} type="password" placeholder="Password" />
         </div>
-        {this.renderAlert()}
+        {renderAlert(this.props)}
         <button action="submit" className="btn btn-primary">
           Sign In
         </button>
@@ -45,7 +35,8 @@ function mapStateToProps(state) {
 }
 //assigning reduxForm decorator to our class
 Signin = reduxForm({
-  form: 'signin'
+  form: 'signin',
+  validate
 })(Signin);
 
 //assigning connect, so that we can have access to the action creator via props
