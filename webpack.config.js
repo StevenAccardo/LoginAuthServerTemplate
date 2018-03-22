@@ -50,9 +50,6 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: 'client/src/index.html'
     }),
-    new ExtractTextPlugin('styles.css'),
-    new webpack.DefinePlugin({
-      'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV)
-    })
+    new ExtractTextPlugin('styles.css')
   ]
 };

@@ -9,7 +9,7 @@
   },
   "scripts": {
     "clean": "rm -rf dist",
-    "build": "NODE_ENV=production npm run clean && webpack -p",
+    "build": "NODE_ENV=production npm run clean && NODE_ENV=production webpack -p",
     "start": "node ./server/index.js",
     "dev": "nodemon ./server/index.js",
     "webdev": "webpack-dev-server"
