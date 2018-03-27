@@ -5,6 +5,13 @@ import { connect } from 'react-redux';
 import { renderComponent, renderAlert, validate } from '../../utils/signupSigninUtil';
 
 class Signup extends Component {
+  constructor(props) {
+    super(props);
+    console.log(props);
+    const errorReset = '';
+    props.authError(errorReset);
+  }
+
   //Calls the action creator that sends the form values to the server
   handleFormSubmit(props) {
     this.props.signupUser(props);

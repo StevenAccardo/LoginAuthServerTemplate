@@ -5,6 +5,13 @@ import * as actions from '../../actions';
 import { renderComponent, renderAlert, validate } from '../../utils/signupSigninUtil';
 
 class Signin extends Component {
+  constructor(props) {
+    super(props);
+    console.log(props);
+    const errorReset = '';
+    props.authError(errorReset);
+  }
+
   handleFormSubmit({ email, password }) {
     //calls the action creator, and passes in the user entered data
     this.props.signinUser({ email, password });
