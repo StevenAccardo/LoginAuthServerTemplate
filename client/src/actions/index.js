@@ -10,7 +10,6 @@ import history from '../utils/history';
 import { AUTH_USER, UNAUTH_USER, AUTH_ERROR, FETCH_MESSAGE } from './types';
 
 //Assigns the root url differently depending on what environment the application is being run in.
-console.log('process.env.NODE_ENV', process.env.NODE_ENV);
 let ROOT_URL;
 process.env.NODE_ENV === 'production' ? (ROOT_URL = 'https://powerful-sands-56330.herokuapp.com') : (ROOT_URL = 'http://localhost:3000');
 

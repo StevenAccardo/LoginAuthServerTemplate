@@ -7,7 +7,6 @@ import { renderComponent, renderAlert, validate } from '../../utils/signupSignin
 class Signin extends Component {
   constructor(props) {
     super(props);
-    console.log(props);
     const errorReset = '';
     props.authError(errorReset);
   }
