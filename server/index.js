@@ -45,7 +45,6 @@ if (process.env.NODE_ENV !== 'production') {
   //interecepts incoming requests and responds with the compiled javascript application
   app.use(webpackMiddleware(webpack(webpackConfig)));
 } else {
-  console.log('Prod');
   //IF IN PRODUCTION ENVIRONMENT
   //opens up the dist directory for anyone who requests files from it
   app.use(express.static('dist'));

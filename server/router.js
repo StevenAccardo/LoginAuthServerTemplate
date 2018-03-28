@@ -18,13 +18,11 @@ module.exports = function(app) {
   //If the user is not authenticated
   //This is being used to emulate some protected data that the user can only access if authenticated.
 
-  //Uncomment the requireAuth if you would like to protect a certain route via the server instead of via the front-end HOC
-  app.get(
-    '/feature',
-    /*requireAuth,*/ function(req, res) {
-      res.send({ message: 'Super secret code is ABC123' });
-    }
-  );
+  //Uncomment this route if you would like to protect a certain route via the server instead of via the front-end HOC
+  // app.get('/feature',requireAuth, function(req, res) {
+  //     res.send({ message: 'Super secret code is ABC123' });
+  //   }
+  // );
   //requires the request to go through middleware, where the user will have to be authenticated via requireSignin before it is passed to the route handler Authentication.signin
   //any post request to /signup and /signin will be handled by the corresponding function in the authentication controller file
   //If the users is not authenticated, passport will respond to the request with a 401 "unauthorized" status response
