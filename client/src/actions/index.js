@@ -87,15 +87,16 @@ export function signoutUser() {
 }
 
 //action creator that sends a GET request to the root route of our server and returns a message. This is a practice case to emulates fetching some protected data only when the user is authenticated.
-export function fetchMessage() {
-  return function(dispatch) {
-    //Includes optional paramateres in the HTTP request, in thise case, the JWT that is stored locally is being attached to the request header
-    axios.get(`${ROOT_URL}/feature`, { headers: { authorization: localStorage.getItem('token') } }).then(response => {
-      //sends the response message to the reducers
-      dispatch({
-        type: FETCH_MESSAGE,
-        payload: response.data.message
-      });
-    });
-  };
-}
+//Commented out for future use
+// export function fetchMessage() {
+//   return function(dispatch) {
+//     //Includes optional paramateres in the HTTP request, in thise case, the JWT that is stored locally is being attached to the request header
+//     axios.get(`${ROOT_URL}/feature`, { headers: { authorization: localStorage.getItem('token') } }).then(response => {
+//       //sends the response message to the reducers
+//       dispatch({
+//         type: FETCH_MESSAGE,
+//         payload: response.data.message
+//       });
+//     });
+//   };
+// }
